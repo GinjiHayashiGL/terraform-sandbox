@@ -1,0 +1,14 @@
+{
+    "recommendations": [
+        //terraform extentions
+        "hashicorp.terraform",
+        "hashicorp.hcl",
+        // others
+        "codezombiech.gitignore",
+        "mhutchie.git-graph",
+        "mosapride.zenkaku",
+        "shardulm94.trailing-spaces",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+    ]
+}
