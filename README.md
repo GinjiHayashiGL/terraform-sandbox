@@ -27,12 +27,13 @@ Terraformを用いたInfrastructure as Code (IaC) の学習および検証用の
 2. AWS CLIのインストール
    - awsコマンド使用のためインストールを実施 ( [インストール手順](https://docs.aws.amazon.com/ja_jp/cli/latest/userguide/getting-started-install.html) )
    - `aws configure` を使用し、プロファイルにAWSアクセスキーを設定 ( [設定手順](https://dev.classmethod.jp/articles/lim-cli-profile/) )
-   - 本環境では下記のようにプロファイル名を設定すること (プロファイル名を別名で指定する場合は `terraform/examples/main.tf` のプロファイル名を変更すること)
+   - 本環境では下記のようにプロファイル名を設定すること (プロファイル名を別名で指定する場合は `terraform/examples/main.tf` のプロファイル名を変更すること)  
+
    ```bash
    # プロファイル名を "terraform-user" に指定
    aws configure --profile terraform-user
    ```
-   - 下記のコマンドを実施し、認証情報が正常に使用可能かを確認する
+   - 下記のコマンドを実施し、認証情報が正常に使用可能かを確認する  
 
    ```bash
    # defaultのプロファイルによる確認
