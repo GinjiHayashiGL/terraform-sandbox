@@ -1,12 +1,68 @@
 {
-    "[terraform]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "file"
-    },
-    "[terraform-vars]": {
-        "editor.defaultFormatter": "hashicorp.terraform",
-        "editor.formatOnSave": true,
-        "editor.formatOnSaveMode": "file"
+  /* =====================================================
+   * 共通エディタ設定（言語に依存しない）
+   * ===================================================== */
+  // 保存時にフォーマットを実行する（誰がやるかは後で指定）
+  "editor.formatOnSave": true,
+  // 保存時に「自動修正可能な問題」をすべて修正する
+  // → Ruff の lint --fix がここにフックされる
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  // Tabキー入力をスペースに変換（Python必須レベル）
+  "editor.insertSpaces": true,
+  // インデント幅を4スペースとして扱う（PEP8準拠）
+  "editor.tabSize": 4,
+  // 行末の不要な空白を保存時に削除（diff汚染防止）
+  "files.trimTrailingWhitespace": true,
+  // ファイル末尾に必ず改行を入れる（POSIX/Git慣習）
+  "files.insertFinalNewline": true,
+  /* =====================================================
+   * Terraform 専用設定
+   * ===================================================== */
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  "[terraform-vars]": {
+    "editor.defaultFormatter": "hashicorp.terraform",
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file"
+  },
+  /* =====================================================
+   * Python 専用設定
+   * ===================================================== */
+  "[python]": {
+    // Pythonファイルのフォーマッタとして Ruff を使う
+    // → 保存時に ruff format が実行される
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    // 保存時に import を整理する
+    // → Ruff の I ルール（isort互換）が動く
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
     }
+  },
+  /* =====================================================
+   * Ruff（lint / format / import）
+   * ===================================================== */
+  // Ruff 拡張を有効化
+  "ruff.enable": true,
+  // Ruff の lint 機能を有効化
+  // → 未使用変数・冗長コードなどを検出
+  "ruff.lint.enable": true,
+  /* =====================================================
+   * Pylance（型チェック）
+   * ===================================================== */
+  // 型チェックの厳しさ
+  // off    : 型チェックなし
+  // basic  : 実務向け（推奨）
+  // strict : かなり厳しい
+  "python.analysis.typeCheckingMode": "basic",
+  // 型情報をもとに import 候補を自動補完
+  // 例: DataFrame → pandas が候補に出る
+  "python.analysis.autoImportCompletions": true,
+  // stubがなくてもライブラリ実装から型推論を行う
+  // → 型定義が弱いライブラリでも補完が効く
+  "python.analysis.useLibraryCodeForTypes": true
 }

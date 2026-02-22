@@ -1,6 +1,10 @@
 {
     "recommendations": [
-        //terraform extentions
+        // python extensions
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        // terraform extensions
         "hashicorp.terraform",
         "hashicorp.hcl",
         // others
